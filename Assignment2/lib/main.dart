@@ -94,21 +94,18 @@ class ProfileCardPage extends StatelessWidget {
                               fit: BoxFit.cover,
                               errorBuilder: (context, error, stackTrace) =>
                                   Container(
-                                    width: 104,
-                                    height: 104,
-                                    color: Colors.grey.shade200,
-                                    child: const Icon(
-                                      Icons.person,
-                                      size: 48,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
+                                width: 104,
+                                height: 104,
+                                color: Colors.grey.shade200,
+                                child: const Icon(Icons.person,
+                                    size: 48, color: Colors.grey),
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 18),
                         const Text(
-                          'Samreena Mughal',
+                          'Muhammad Abdul Qayyoum',
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
@@ -154,12 +151,12 @@ class ProfileCardPage extends StatelessWidget {
                             children: [
                               _ContactRow(
                                 icon: Icons.email,
-                                contact: 'samreena@example.com',
+                                contact: 'muhammadabdulqayyoum45@example.com',
                               ),
                               const SizedBox(height: 8),
                               _ContactRow(
                                 icon: Icons.phone,
-                                contact: '+92 300 12334242',
+                                contact: '+92 300 1233423434',
                               ),
                             ],
                           ),

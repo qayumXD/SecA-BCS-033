@@ -1,0 +1,6 @@
+Please add full-screen screenshots of the running app here.
+Recommended names:
+- screenshot_full.png
+- screenshot_mobile.png
+
+You can replace this file with actual PNGs before committing to GitHub.

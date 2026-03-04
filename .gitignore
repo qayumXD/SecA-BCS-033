@@ -52,3 +52,4 @@ build/
 *.swp
 .DS_Store
 .history
+.metadata
