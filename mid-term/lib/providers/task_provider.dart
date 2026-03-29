@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager_app/database/db_helper.dart';
 import 'package:task_manager_app/models/task_model.dart';
@@ -39,35 +40,45 @@ class TaskProvider with ChangeNotifier {
       await _dbHelper.insertSubTask(subTask);
     }
     
-    // Schedule notification
-    await _notificationService.scheduleNotification(task);
+    // Schedule notification (only on mobile platforms)
+    if (!kIsWeb) {
+      await _notificationService.scheduleNotification(task);
+    }
     
     await fetchTasks();
   }
 
   Future<void> updateTask(Task task) async {
     await _dbHelper.updateTask(task);
-    await _notificationService.scheduleNotification(task);
+    if (!kIsWeb) {
+      await _notificationService.scheduleNotification(task);
+    }
     await fetchTasks();
   }
 
   Future<void> deleteTask(int id) async {
     await _dbHelper.deleteTask(id);
-    await _notificationService.cancelNotification(id);
+    if (!kIsWeb) {
+      await _notificationService.cancelNotification(id);
+    }
     await fetchTasks();
   }
 
   Future<void> toggleTaskCompletion(Task task) async {
     task.isCompleted = !task.isCompleted;
     if (task.isCompleted) {
-      await _notificationService.cancelNotification(task.id!);
+      if (!kIsWeb) {
+        await _notificationService.cancelNotification(task.id!);
+      }
       
       // Handle repeat logic
       if (task.repeatType != 'none') {
         _handleRepeatTask(task);
       }
     } else {
-      await _notificationService.scheduleNotification(task);
+      if (!kIsWeb) {
+        await _notificationService.scheduleNotification(task);
+      }
     }
     await _dbHelper.updateTask(task);
     await fetchTasks();
