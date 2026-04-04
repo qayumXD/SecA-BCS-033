@@ -1,0 +1,52 @@
+{
+  "game": {
+    "title": "Mario Kart Racing",
+    "fps": 60,
+    "screen_width": 1280,
+    "screen_height": 720,
+    "laps_per_race": 3
+  },
+  "characters": {
+    "mario": {"speed": 7, "acceleration": 6, "handling": 7, "weight": 5, "mini_turbo": 6},
+    "luigi": {"speed": 6, "acceleration": 7, "handling": 8, "weight": 4, "mini_turbo": 7},
+    "peach": {"speed": 5, "acceleration": 8, "handling": 9, "weight": 3, "mini_turbo": 8},
+    "yoshi": {"speed": 6, "acceleration": 8, "handling": 8, "weight": 3, "mini_turbo": 7},
+    "bowser": {"speed": 9, "acceleration": 4, "handling": 4, "weight": 9, "mini_turbo": 4},
+    "toad": {"speed": 5, "acceleration": 9, "handling": 9, "weight": 2, "mini_turbo": 9},
+    "donkey_kong": {"speed": 8, "acceleration": 5, "handling": 5, "weight": 8, "mini_turbo": 5},
+    "rosalina": {"speed": 7, "acceleration": 6, "handling": 7, "weight": 6, "mini_turbo": 6}
+  },
+  "karts": {
+    "standard": {"speed_mod": 0, "acceleration_mod": 0, "handling_mod": 0, "weight_mod": 0},
+    "pipe_frame": {"speed_mod": -1, "acceleration_mod": 2, "handling_mod": 1, "weight_mod": -1},
+    "mach_8": {"speed_mod": 2, "acceleration_mod": -1, "handling_mod": -1, "weight_mod": 1},
+    "badwagon": {"speed_mod": 1, "acceleration_mod": 0, "handling_mod": 1, "weight_mod": 0}
+  },
+  "items": {
+    "probabilities": {
+      "1": {"green_shell": 0.3, "banana": 0.3, "coin": 0.4},
+      "2-3": {"green_shell": 0.25, "red_shell": 0.15, "banana": 0.25, "coin": 0.25, "blooper": 0.1},
+      "4-6": {"green_shell": 0.15, "red_shell": 0.2, "banana": 0.15, "bob_omb": 0.15, "star": 0.1, "blooper": 0.15, "coin": 0.1},
+      "7-9": {"red_shell": 0.2, "bob_omb": 0.15, "star": 0.15, "lightning": 0.1, "bullet_bill": 0.15, "blue_shell": 0.05, "blooper": 0.2},
+      "10-12": {"star": 0.2, "lightning": 0.15, "bullet_bill": 0.3, "blue_shell": 0.1, "bob_omb": 0.15, "red_shell": 0.1}
+    }
+  },
+  "physics": {
+    "max_speed": 15.0,
+    "acceleration": 0.3,
+    "deceleration": 0.2,
+    "drift_friction": 0.95,
+    "off_road_friction": 0.85,
+    "boost_pad_speed": 20.0,
+    "mini_turbo_boost": 5.0,
+    "drift_angle_rate": 3.5
+  },
+  "drift": {
+    "blue_sparks_time": 0.8,
+    "orange_sparks_time": 1.5,
+    "purple_sparks_time": 2.5,
+    "blue_boost": 1.5,
+    "orange_boost": 2.5,
+    "purple_boost": 4.0
+  }
+}

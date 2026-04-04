@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this); // Changed to 4
+    _tabController = TabController(length: 4, vsync: this);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<TaskProvider>(context, listen: false).fetchTasks();
     });
@@ -30,31 +30,31 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final taskProvider = Provider.of<TaskProvider>(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Task Manager'),
-        actions: [
-          IconButton(
-            icon: Icon(themeProvider.themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode),
-            onPressed: () => themeProvider.toggleTheme(themeProvider.themeMode != ThemeMode.dark),
-          ),
-          PopupMenuButton<String>(
-            onSelected: (value) async {
-              switch (value) {
-                case 'pdf':
-                  await _exportService.exportToPDF(taskProvider.tasks);
-                  break;
-                case 'csv':
-                  await _exportService.exportToCSV(taskProvider.tasks);
-                  break;
-                case 'email':
-                  await _exportService.shareViaEmail(taskProvider.tasks);
-                  break;
-              }
-            },
-            itemBuilder: (context) => [
-              const PopupMenuItem(value: 'pdf', child: Text('Export to PDF')),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 160,
+            floating: false,
+            pinned: true,
+            backgroundColor: isDark ? const Color(0xFF1E293B) : Colors.white,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: isDark
+                        ? [const Color(0xFF6366F1), const Color(0xFF8B5CF6)]
+                        : [const Color(0xFF6366F1), const Color(0xFF8B5CF6)],
+                  ),
+                ),
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(2ld: Text('Export to PDF')),
               const PopupMenuItem(value: 'csv', child: Text('Export to CSV')),
               const PopupMenuItem(value: 'email', child: Text('Share via Email')),
             ],
